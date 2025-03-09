@@ -1,6 +1,7 @@
 import React from 'react'
 import {Check} from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   const pricing = [
@@ -30,13 +31,18 @@ const Pricing = () => {
         {
           pricing.map((element) => {
             return (
-              <div className="card" key={element.title}>
+              <motion.div
+                whileHover={{ scale: 0.9 }}
+                whileTap={{ scale: 1 }}
+                className="card"
+                key={element.title}
+              >
                 <img src={element.imgUrl} alt={element.title} />
                 <div className="title">
                   <h1>{element.title}</h1>
                   <h1>PACKAGE</h1>
                   <h3>Rs {element.price}</h3>
-                  <p>For { element.length} Months</p>
+                  <p>For {element.length} Months</p>
                 </div>
                 <div className="description">
                   <p>
@@ -54,10 +60,10 @@ const Pricing = () => {
                   <p>
                     <Check /> 20 Days Freezing Support
                   </p>
-                  <Link to={"/"} >Join Now</Link>
+                  <Link to={"/"}>Join Now</Link>
                 </div>
-              </div>
-            )
+              </motion.div>
+            );
           })
         }
       </div>
